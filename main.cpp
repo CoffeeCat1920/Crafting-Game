@@ -69,7 +69,7 @@ public:
 
 
   ~Game() {
-    UnloadRenderTexture(target); // Unload render texture
+    //UnloadRenderTexture(target); // Unload render texture
   }
 
 };

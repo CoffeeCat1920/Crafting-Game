@@ -20,15 +20,12 @@ private:
 public:
 
   Item( std::string name, Image image ) : name(name), image(image) {
-    rec.width = 64;
-    rec.height = 64;
-
-    //texture = LoadTextureFromImage(image);
-
+    rec.width = 16;
+    rec.height = 16;
   }
 
   void Init(); 
-  bool IsHover();
+  bool IsHover( Rectangle rec );
   void Draw( Vector2 position );
 
   void SetLore( std::string lore );

@@ -10,17 +10,35 @@ void CraftingTable::Init() {
   this->t_pot = LoadTextureFromImage(pot);
   this->t_boxes = LoadTextureFromImage(boxes);
 
-  mud.Init();
+  for ( int i = 0; i < 6; i++ ) {
+
+    unlockedItems[i].Init(); 
+
+  }
+
+  downButton.Init();
 
 }
 
 void CraftingTable::Grid() {
 
-  const int DISTANCE = 10; 
+  int j = 1;
+  float x = 0;
+  float y = 0; 
 
-  int x = 1;
-  
-  mud.Draw( Vector2  {16 * 2, 16 * 2} );
+  for ( int i = 0; i < 6; i++ ) {
+
+    unlockedItems[i].Draw( Vector2 { 16 * (float)(3+x)  , 16 * float( 3.2+ y)  } );
+
+    x++;
+
+    if ( i == j ) {
+      y = y + 1.1;
+      j = j+2;
+      x = 0;
+    } 
+
+  }
 
 }
 
@@ -40,6 +58,8 @@ void CraftingTable::Draw() {
   Background();
 
   Grid();
+
+  downButton.Draw( Vector2 { 16 * 3.5, 16 * 6.5 } );
 
   return;
 
