@@ -14,7 +14,7 @@ TARGET = $(BINDIR)/app
 SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 
 # Define the object files
-OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(BINDIR)/%.o, $(SOURCES))
+OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(BINDIR)/%.o, $(SOURCES)) main.cpp
 
 # Define the compiler flags
 CXXFLAGS = -I$(INCDIR)
