@@ -4,6 +4,8 @@
 #include "../include/raylib.h"
 #include "../include/settings.h"
 
+#include <iostream>
+
 class Button {
 
 private:
@@ -13,6 +15,8 @@ private:
 
   Rectangle rec;
 
+  bool answer;
+
   bool IsHover();
 
 public:
@@ -21,6 +25,8 @@ public:
 
     rec.width = 16; 
     rec.height = 16;
+
+    answer = false;
 
   }
 

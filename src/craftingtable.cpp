@@ -10,7 +10,7 @@ void CraftingTable::Init() {
   this->t_pot = LoadTextureFromImage(pot);
   this->t_boxes = LoadTextureFromImage(boxes);
 
-  for ( int i = 0; i < 6; i++ ) {
+  for ( int i = 0; i < 9; i++ ) {
 
     unlockedItems[i].Init(); 
 
@@ -22,21 +22,32 @@ void CraftingTable::Init() {
 
 void CraftingTable::Grid() {
 
-  int j = 1;
   float x = 0;
   float y = 0; 
 
-  for ( int i = 0; i < 6; i++ ) {
+  if ( downButton.IsClick() ) {
 
-    unlockedItems[i].Draw( Vector2 { 16 * (float)(3+x)  , 16 * float( 3.2+ y)  } );
+    this->list_start = list_start+6;
+    this->list_end = list_end+6;
+
+  }
+
+  int j = list_start + 1;
+
+  for ( int i = list_start; i < list_end; i++ ) {
+
+    if (!unlockedItems[i].isEmpty()) unlockedItems[i].Draw( Vector2 { 16 * (float)(3+x)  , 16 * float( 3.2+ y)  } );
 
     x++;
 
-    if ( i == j ) {
-      y = y + 1.1;
+    if ( j == i ) {
+
       j = j+2;
+      y = y + 1;
       x = 0;
+
     } 
+
 
   }
 
@@ -68,4 +79,5 @@ void CraftingTable::Draw() {
 GameState CraftingTable::Change() {
 
   return CRAFTING_TABLE;
+
 }

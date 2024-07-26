@@ -1,41 +1,50 @@
-
-# Compiler and flags
+# Define the compiler
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Iinclude
 
-# Directories
+# Define the directories
 SRCDIR = src
+INCDIR = include
 BINDIR = bin
 LIBDIR = lib
-ASSETSDIR = assets
-INCLUDEDIR = include
 
-# Libraries
-LIBS = -L$(LIBDIR) -lraylib -lm -lpthread -ldl -lrt -lX11
+# Define the target executable
+TARGET = $(BINDIR)/app
 
-# Source files and object files
-SOURCES = $(wildcard $(SRCDIR)/*.cpp) main.cpp
-OBJECTS = $(patsubst %.cpp,$(BINDIR)/%.o,$(notdir $(SOURCES)))
+# Define the source files
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 
-# Executable
-EXECUTABLE = $(BINDIR)/main
+# Define the object files
+OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(BINDIR)/%.o, $(SOURCES))
 
-# Rules
-all: $(EXECUTABLE)
+# Define the compiler flags
+CXXFLAGS = -I$(INCDIR)
 
-$(EXECUTABLE): $(OBJECTS)
-	@mkdir -p $(BINDIR)
-	$(CXX) $(OBJECTS) -o $@ $(LIBS)
+# Define the linker flags
+LDFLAGS = -L$(LIBDIR) -lraylib
 
+# Default rule to build the target
+all: $(TARGET)
+
+# Rule to link the object files into the target executable
+$(TARGET): $(OBJECTS)
+	@echo "Linking: $(OBJECTS)"
+	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
+
+# Rule to compile source files into object files
 $(BINDIR)/%.o: $(SRCDIR)/%.cpp
-	@mkdir -p $(BINDIR)
+	@echo "Compiling $<"
+	mkdir -p $(BINDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(BINDIR)/main.o: main.cpp
-	@mkdir -p $(BINDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
+# Clean up generated files
 clean:
-	rm -rf $(BINDIR)/*.o $(EXECUTABLE)
+	rm -rf $(BINDIR)/*.o $(TARGET)
 
-.PHONY: all clean
+# Print variables for debugging
+debug:
+	@echo "Sources: $(SOURCES)"
+	@echo "Objects: $(OBJECTS)"
+	@echo "Target: $(TARGET)"
+
+# Phony targets
+.PHONY: all clean debug

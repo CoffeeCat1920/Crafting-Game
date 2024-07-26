@@ -32,6 +32,8 @@ public:
 
   std::string GetName();
 
+  bool isEmpty() const;
+
 };
 
 #endif // !ITEM_H

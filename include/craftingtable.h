@@ -25,6 +25,8 @@ private:
 
   Texture t_background, t_table, t_cloth, t_whiteCloth, t_pot, t_boxes;
 
+  int list_start, list_end;
+
 public:
 
   CraftingTable() : downButton( LoadImage("./resources/ui/png/arrow.png") ) {
@@ -32,9 +34,11 @@ public:
     unlockedItems.push_back( water );
     unlockedItems.push_back( dirt );
     unlockedItems.push_back( mud );
+    
     unlockedItems.push_back( heart1 );
     unlockedItems.push_back( heart2 );
     unlockedItems.push_back( heart3 );
+
     unlockedItems.push_back( heart4 );
     unlockedItems.push_back( heart5 );
     unlockedItems.push_back( heart6 );
@@ -45,6 +49,10 @@ public:
     whiteCloth = LoadImage("./resources/background/white_cloth.png");
     pot = LoadImage("./resources/background/pot.png");
     boxes = LoadImage("./resources/background/blocks.png");
+
+    list_start = 0;
+    list_end = 6;
+
 
   }
 
