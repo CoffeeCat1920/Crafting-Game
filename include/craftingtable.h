@@ -21,9 +21,9 @@ private:
 
   Button downButton;
 
-  Image background, table, cloth, whiteCloth, pot, boxes;
+  Image background, table, cloth, whiteCloth, pot, boxes, lore;
 
-  Texture t_background, t_table, t_cloth, t_whiteCloth, t_pot, t_boxes;
+  Texture t_background, t_table, t_cloth, t_whiteCloth, t_pot, t_boxes, t_lore;
 
   int list_start, list_end;
 
@@ -49,9 +49,10 @@ public:
     whiteCloth = LoadImage("./resources/background/white_cloth.png");
     pot = LoadImage("./resources/background/pot.png");
     boxes = LoadImage("./resources/background/blocks.png");
+    lore = LoadImage("./resources/background/lore.png");
 
     list_start = 0;
-    list_end = 6;
+    list_end = 9;
 
 
   }

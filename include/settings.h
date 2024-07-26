@@ -7,3 +7,5 @@
 
 #define GAME_WIDTH 128
 #define GAME_HEIGHT 128
+
+#define TINT (Color) {255, 255, 255, 200}

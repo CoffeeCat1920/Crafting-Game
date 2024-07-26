@@ -4,6 +4,7 @@
 #include "./raylib.h"
 #include "./settings.h"
 
+#include <iostream>
 #include <string>
 
 class Item {
@@ -17,19 +18,33 @@ private:
   Texture texture;
   Rectangle rec;
 
+  bool selected;
+
+  Color tint;
+
 public:
 
+  Item() {}
+
   Item( std::string name, Image image ) : name(name), image(image) {
+    
     rec.width = 16;
     rec.height = 16;
+
+    selected = false;
+
+    tint = WHITE;
+     
+    lore = "\0";
+
   }
 
   void Init(); 
   bool IsHover( Rectangle rec );
+  bool isClick();
   void Draw( Vector2 position );
 
   void SetLore( std::string lore );
-
   std::string GetName();
 
   bool isEmpty() const;

@@ -23,22 +23,60 @@ bool Item::IsHover( Rectangle rec ) {
 
     return true;
 
-
   }
   
   return false;
 
 }
 
+bool Item::isClick() {
+
+  if ( IsHover(rec) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) ) {
+
+    selected = !selected;
+
+  } 
+
+  return selected;
+
+}
+
 void Item::Draw( Vector2 position ) {
+
+  isClick();
 
   rec.x = position.x;
   rec.y = position.y;
 
-  if ( IsHover(rec) ) DrawTextureV(this->texture, Vector2{position.x, position.y - 2}, WHITE); 
-  else DrawTexture(this->texture, position.x, position.y, WHITE); 
+  if ( selected ) {
+    
+    tint = TINT;
+
+  }
+  else {
+
+    tint = WHITE;
+
+  }
+
+  if ( IsHover(rec) ) {
+
+    DrawTextureV(this->texture, Vector2{position.x, position.y - 2}, tint); 
+    
+  }
+  else {
+
+    DrawTexture(this->texture, position.x, position.y, tint); 
+
+  }
 
   return;
+
+}
+
+void Item::SetLore( std::string lore ) {
+
+  this->lore = lore;
 
 }
 
