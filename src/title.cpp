@@ -3,13 +3,13 @@
 void Title::Init() {
 
   this->boldFont = LoadFont("./resources/font/Kaph.ttf"); 
-  this->textFont = LoadFont("./resources/font/m6x11.ttf"); 
+  this->textFont = LoadFont("./resources/font/tom_thumb.png"); 
 
 }
 
 void Title::Draw() {
 
-  DrawTextEx(boldFont, "GAME NAME", Vector2{(float)BLOCK * 2.5, (float)BLOCK * 3}, boldFont.baseSize, 1, WHITE);
+  DrawTextEx(textFont, "GAME NAME", Vector2{(float)BLOCK * 2.5, (float)BLOCK * 3}, textFont.baseSize/2, 1, BLACK);
 
 }
 

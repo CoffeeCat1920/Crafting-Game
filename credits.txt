@@ -1,0 +1,18 @@
+Sprites {
+  Smol Ghost {
+    https://dev-v.itch.io/smol-ghost-simple-sprite
+  }
+}
+Fonts {
+  KAPH {
+    https://ggbot.itch.io/kaph-font
+  }
+  m6x11 {
+    https://managore.itch.io/m6x11
+  }
+}
+Music {
+  Backgrounf {
+    https://pixabay.com/users/lfc_records-19410400/
+  }
+}

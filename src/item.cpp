@@ -3,13 +3,12 @@
 void Item::Init() {
 
   this->texture = LoadTextureFromImage(this->image); 
-  
+
   return;
 
 }
 
 std::string Item::GetName() {
-
   return this->name;
 }
 
@@ -62,7 +61,7 @@ void Item::Draw( Vector2 position ) {
   if ( IsHover(rec) ) {
 
     DrawTextureV(this->texture, Vector2{position.x, position.y - 2}, tint); 
-    
+
   }
   else {
 
@@ -71,6 +70,13 @@ void Item::Draw( Vector2 position ) {
   }
 
   return;
+
+}
+
+void Item::DrawText() {
+
+
+
 
 }
 

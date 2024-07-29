@@ -19,29 +19,29 @@ private:
   Rectangle rec;
 
   bool selected;
-
   Color tint;
+
 
 public:
 
   Item() {}
 
-  Item( std::string name, Image image ) : name(name), image(image) {
+  Item( std::string name, Image image, std::string lore) : name(name), image(image) {
     
     rec.width = 16;
     rec.height = 16;
 
     selected = false;
-
     tint = WHITE;
      
-    lore = "\0";
+    lore = lore;
 
   }
 
   void Init(); 
   bool IsHover( Rectangle rec );
   bool isClick();
+  void DrawText();
   void Draw( Vector2 position );
 
   void SetLore( std::string lore );

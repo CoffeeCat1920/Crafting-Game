@@ -18,7 +18,7 @@ private:
 
 public:
 
-  Game() : currentState(CRAFTING_TABLE) {}
+  Game() : currentState(TITLE) {}
 
   void Init() {
     title.Init();
