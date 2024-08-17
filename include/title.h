@@ -5,6 +5,8 @@
 #include "./settings.h"
 #include "./gamemanager.h"
 
+#include <iostream>
+
 class Title {
 
 private:
